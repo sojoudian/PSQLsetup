@@ -1,4 +1,4 @@
-o set up the PostgreSQL database for your authentication system using Docker, you'll need to use a PostgreSQL Docker image. This setup will allow you to run PostgreSQL in a Docker container, making it easy to deploy and scale.
+To set up the PostgreSQL database for your authentication system using Docker, you'll need to use a PostgreSQL Docker image. This setup will allow you to run PostgreSQL in a Docker container, making it easy to deploy and scale.
 
 Step 1: Install Docker
 Ensure that Docker is installed on your machine. If it's not installed, download and install Docker from the official website.
@@ -6,14 +6,14 @@ Ensure that Docker is installed on your machine. If it's not installed, download
 Step 2: Pull PostgreSQL Docker Image
 Pull the official PostgreSQL image from Docker Hub:
 
-bash
-Copy code
+```bash
 docker pull postgres
+```
 Step 3: Run PostgreSQL Container
 Run a PostgreSQL container with the necessary environment variables for the initial database, user, and password. Replace yourpassword with a secure password.
 
 ```bash
-Copy code
+
 docker run --name your-db-name -e POSTGRES_USER=yourusername -e POSTGRES_PASSWORD=yourpassword -e POSTGRES_DB=yourdbname -p 5432:5432 -d postgres
 ```
 --name your-db-name: Sets the name of your Docker container.
@@ -26,7 +26,6 @@ Step 4: Verify Container is Running
 Check that the PostgreSQL container is running:
 
 ```bash
-Copy code
 docker ps
 ```
 Step 5: Connect to PostgreSQL Database
@@ -36,13 +35,11 @@ Step 6: Create the User Table
 Connect to your database and create the users table as described previously. If you're comfortable with the command line, you can use the docker exec command to run the psql client inside the container:
 
 ```bash
-Copy code
 docker exec -it your-db-name psql -U yourusername -d yourdbname
 ```
 Then, execute the SQL command to create the users table:
 
 ```sql
-Copy code
 CREATE TABLE users (
     id SERIAL PRIMARY KEY,
     username VARCHAR(255) UNIQUE NOT NULL,
