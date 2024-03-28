@@ -35,18 +35,20 @@ You can connect to the PostgreSQL database running inside the Docker container u
 Step 6: Create the User Table
 Connect to your database and create the users table as described previously. If you're comfortable with the command line, you can use the docker exec command to run the psql client inside the container:
 
-bash
+```bash
 Copy code
 docker exec -it your-db-name psql -U yourusername -d yourdbname
+```
 Then, execute the SQL command to create the users table:
 
-sql
+```sql
 Copy code
 CREATE TABLE users (
     id SERIAL PRIMARY KEY,
     username VARCHAR(255) UNIQUE NOT NULL,
     password_hash CHAR(60) NOT NULL
 );
+```
 Additional Notes
 Data Persistence: By default, the data inside the Docker container is ephemeral. If you stop the container, you'll lose all the data. To persist data, consider using Docker volumes.
 Security: Ensure the PostgreSQL user password is secure. Also, when deploying to production, consider additional security measures such as network security policies.
