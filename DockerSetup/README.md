@@ -12,9 +12,10 @@ docker pull postgres
 Step 3: Run PostgreSQL Container
 Run a PostgreSQL container with the necessary environment variables for the initial database, user, and password. Replace yourpassword with a secure password.
 
-'''bash
+```bash
 Copy code
 docker run --name your-db-name -e POSTGRES_USER=yourusername -e POSTGRES_PASSWORD=yourpassword -e POSTGRES_DB=yourdbname -p 5432:5432 -d postgres
+```
 --name your-db-name: Sets the name of your Docker container.
 -e POSTGRES_USER=yourusername: Sets the default user for PostgreSQL.
 -e POSTGRES_PASSWORD=yourpassword: Sets the password for the PostgreSQL user.
@@ -22,11 +23,12 @@ docker run --name your-db-name -e POSTGRES_USER=yourusername -e POSTGRES_PASSWOR
 -p 5432:5432: Maps the port 5432 inside the Docker container to port 5432 on your host machine, allowing your application to connect to the PostgreSQL server.
 -d postgres: Runs the PostgreSQL image as a detached process.
 Step 4: Verify Container is Running
-Check that the PostgreSQL container is running:'''
+Check that the PostgreSQL container is running:
 
-bash
+```bash
 Copy code
 docker ps
+```
 Step 5: Connect to PostgreSQL Database
 You can connect to the PostgreSQL database running inside the Docker container using any PostgreSQL client tool, specifying localhost as the host and 5432 as the port. Use the username, password, and database name you defined when running the container.
 
